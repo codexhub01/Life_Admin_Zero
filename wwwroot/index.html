@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f8">
+  <title>LifeAdmin Zero — Resolution workspace</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="/" aria-label="LifeAdmin Zero home">
+        <span class="brand-mark" aria-hidden="true">L<span>0</span></span>
+        <span class="brand-name">lifeadmin<span>zero</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav>
+        <a class="nav-link active" href="#case"><span class="nav-icon" aria-hidden="true">◫</span>Resolution case</a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-icon" aria-hidden="true">✳</span>
+        <p>A clearer path through life’s admin.</p>
+        <span>One step at a time.</span>
+      </div>
+      <div class="sidebar-footer"><span class="online-dot"></span> Local demo workspace</div>
+    </aside>
+
+    <main class="main-content" id="case">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-separator">/</span><strong>Resolution case</strong></div>
+        <div class="topbar-right"><span class="environment-tag"><span></span> DEMO CASE</span><div class="avatar" aria-label="Demo workspace">L</div></div>
+      </header>
+
+      <div class="page-content">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> YOUR RESOLUTION WORKSPACE</div>
+            <h1>Make a plan. <span>Move forward.</span></h1>
+            <p class="page-subtitle">A practical, evidence-led path from problem to resolution.</p>
+          </div>
+          <div class="case-reference"><span class="case-reference-label">CASE REFERENCE</span><span id="case-id" class="case-reference-value">Loading…</span></div>
+        </div>
+
+        <div id="page-error" class="alert error-alert" role="alert" hidden></div>
+        <div id="loading-banner" class="loading-banner" role="status"><span class="spinner"></span> Preparing your resolution workspace…</div>
+
+        <section id="dashboard" hidden>
+          <div class="overview-grid">
+            <article class="card case-card">
+              <div class="card-heading"><div class="heading-icon purple-icon" aria-hidden="true">⌕</div><div><span class="section-kicker">THE SITUATION</span><h2>What’s happening</h2></div></div>
+              <p id="case-description" class="case-description"></p>
+              <div class="case-meta">
+                <div class="meta-item"><span class="meta-icon" aria-hidden="true">◷</span><span><small>SIMULATED DATE</small><strong id="case-date">—</strong></span></div>
+                <div class="meta-divider"></div>
+                <div class="meta-item"><span class="meta-icon deadline-icon" aria-hidden="true">◇</span><span><small>VERIFIED DEADLINE</small><strong id="case-deadline">—</strong></span></div>
+                <div class="meta-divider"></div>
+                <div class="meta-item"><span class="meta-icon" aria-hidden="true">↗</span><span><small>DEADLINE URGENCY</small><strong id="deadline-urgency">—</strong></span></div>
+              </div>
+            </article>
+
+            <article class="card evidence-card">
+              <div class="card-heading evidence-heading"><div class="heading-icon green-icon" aria-hidden="true">✓</div><div><span class="section-kicker">WHAT WE KNOW</span><h2>Evidence</h2></div><span id="evidence-count" class="count-badge">0</span></div>
+              <div id="evidence-list" class="evidence-list"></div>
+            </article>
+          </div>
+
+          <section class="card plan-card" aria-labelledby="plan-title">
+            <div class="plan-header">
+              <div class="plan-title-group"><div class="heading-icon blue-icon" aria-hidden="true">↗</div><div><span class="section-kicker">YOUR ACTION PLAN</span><h2 id="plan-title">A path to resolution</h2></div></div>
+              <div id="action-count" class="action-count">0 steps</div>
+            </div>
+            <div id="recommendation" class="recommendation" hidden><span class="recommendation-icon" aria-hidden="true">✦</span><div><span class="recommendation-label">GOOD NEXT STEP</span><strong id="recommendation-text"></strong></div></div>
+            <div id="action-list" class="action-list" aria-live="polite"></div>
+            <section id="comparison-panel" class="comparison-panel" aria-live="polite" hidden>
+              <div class="comparison-heading"><span class="comparison-icon" aria-hidden="true">↔</span><div><span class="section-kicker">SCENARIO COMPARISON</span><h3>Before <span id="comparison-before-date"></span> <span class="comparison-arrow" aria-hidden="true">→</span> After <span id="comparison-after-date"></span></h3></div></div>
+              <div class="deadline-comparison"><span>Verified deadline</span><strong id="deadline-comparison-text"></strong></div>
+              <div id="action-changes" class="action-changes"></div>
+              <div id="recommendation-changes" class="recommendation-changes" hidden></div>
+              <p id="no-changes" class="no-changes" hidden>No action statuses or recommendations changed in this scenario.</p>
+            </section>
+            <div id="warnings-panel" class="warnings-panel" hidden><div class="warning-heading"><span aria-hidden="true">!</span> Worth keeping in mind</div><ul id="warning-list"></ul></div>
+          </section>
+
+          <section class="simulation-panel" aria-labelledby="simulation-title">
+            <div class="simulation-copy"><div class="simulation-icon" aria-hidden="true">◷</div><div><span class="section-kicker">EXPLORE A DIFFERENT SCENARIO</span><h2 id="simulation-title">What if time moves on?</h2><p>See how your plan changes on a different date.</p></div></div>
+            <form id="simulation-form" class="simulation-form">
+              <label for="simulated-date">SIMULATED DATE</label>
+              <input id="simulated-date" name="simulatedDate" type="date" required>
+              <div class="advance-controls" aria-label="Advance simulated date">
+                <button type="button" data-advance-days="1">+1 day</button>
+                <button type="button" data-advance-days="7">+7 days</button>
+                <button type="button" data-advance-days="15">+15 days</button>
+              </div>
+              <fieldset class="evidence-toggle">
+                <legend>FAULT EVIDENCE</legend>
+                <label><input type="radio" name="faultEvidenceCollected" value="true" checked><span>Collected</span></label>
+                <label><input type="radio" name="faultEvidenceCollected" value="false"><span>Missing</span></label>
+              </fieldset>
+              <button id="simulate-button" type="submit"><span>Simulate &amp; Recalculate</span><span class="button-arrow" aria-hidden="true">→</span></button>
+            </form>
+            <div id="simulation-error" class="simulation-error" role="alert" hidden></div>
+          </section>
+
+          <footer class="page-footer"><span>LifeAdmin Zero</span><span>Clear steps, considered decisions.</span></footer>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

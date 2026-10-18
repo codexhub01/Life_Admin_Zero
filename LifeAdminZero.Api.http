@@ -1,0 +1,5 @@
+@LifeAdminZero.Api_HostAddress = http://localhost:5148
+
+GET {{LifeAdminZero.Api_HostAddress}}/openapi/v1.json
+
+###
