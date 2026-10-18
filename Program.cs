@@ -8,7 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddSingleton<ResolutionEngine>();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("GitHubPages", policy =>
+    {
+        policy.WithOrigins("https://codexhub01.github.io")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
