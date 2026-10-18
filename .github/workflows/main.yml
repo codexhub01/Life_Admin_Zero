@@ -31,12 +31,10 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Prepare frontend files
+         - name: Prepare frontend files
         run: |
           mkdir -p _site
-          cp wwwroot/index.html _site/
-          cp wwwroot/styles.css _site/
-          cp wwwroot/app.js _site/
+          cp -r wwwroot/. _site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
